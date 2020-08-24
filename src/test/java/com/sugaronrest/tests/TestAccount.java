@@ -1,0 +1,23 @@
+package com.sugaronrest.tests;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public final class TestAccount {
+    // public static String Url = "http://demo.suiteondemand.com/service/v4_1/rest.php";
+    public static String Url = "http://191.101.224.189/sugar/service/v4_1/rest.php";
+    public static String Username = "will";
+    public static String Password = "will";
+
+    public static void printJsonObject(Object obj) throws JsonProcessingException {
+        printJsonObject(obj.getClass().getSimpleName(), obj);
+    }
+
+    public static void printJsonObject(String title, Object obj) throws JsonProcessingException {
+        System.out.println("---------" + title + "-------------");
+//        ObjectMapper mapper = JsonObjectMapper.getMapper();
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonError = mapper.writeValueAsString(obj);
+        System.out.println(jsonError);
+    }
+}
